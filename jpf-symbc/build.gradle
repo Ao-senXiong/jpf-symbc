@@ -71,8 +71,8 @@ task compile {
 }
 
 task createJpfClassesJar(type: Jar) {
-    archiveName = "jpf-symbc-classes.jar"
-    destinationDir = file("${buildDir}")
+    archiveFileName = "jpf-symbc-classes.jar"
+    destinationDirectory = file("${buildDir}")
 
     group = "SPF Jars"
     description = "Creates the ${archiveName} file."
@@ -86,8 +86,8 @@ task createJpfClassesJar(type: Jar) {
 }
 
 task createJpfJar(type: Jar) {
-    archiveName = "jpf-symbc.jar"
-    destinationDir = file("${buildDir}")
+    archiveFileName = "jpf-symbc.jar"
+    destinationDirectory = file("${buildDir}")
 
     group = "SPF Jars"
     description = "Creates the ${archiveName} file."
@@ -107,8 +107,8 @@ task createJpfJar(type: Jar) {
 }
 
 task createAnnotationsJar(type: Jar) {
-    archiveName = "jpf-symbc-annotations.jar"
-    destinationDir = file("${buildDir}")
+    archiveFileName = "jpf-symbc-annotations.jar"
+    destinationDirectory = file("${buildDir}")
 
     group = "SPF Jars"
     description = "Creates the ${archiveName} file."
