@@ -24,17 +24,6 @@ jobs:
       with:
         submodules: recursive
         fetch-depth: 0
-        
-    # - name: Set up Git user identity
-    #   run: |
-    #     git config --global user.email "ci@example.com"
-    #     git config --global user.name "CI Bot"
-
-    # - name: Updating Git-submodule
-    #   run: |
-    #     git submodule update --init --recursive
-    #     git submodule foreach --recursive git fetch
-    #     git submodule foreach git merge origin master 
 
     - name: Set up JDK 1.8
       uses: actions/setup-java@v3
