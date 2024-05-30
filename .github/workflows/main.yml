@@ -2,10 +2,10 @@ name: Gradle Package
 
 on:
   push:
-    branches: [ main-gk ]
+    branches: [ ci-enable ]
 
   pull_request:
-    branches: [ main-gk ]
+    branches: [ ci-enable ]
   workflow_dispatch:
 
 
