@@ -26,10 +26,10 @@ jobs:
         submodules: recursive
         fetch-depth: 0
         
-    - name: Set up Git user identity
-      run: |
-        git config --global user.email "ci@example.com"
-        git config --global user.name "CI Bot"
+    # - name: Set up Git user identity
+    #   run: |
+    #     git config --global user.email "ci@example.com"
+    #     git config --global user.name "CI Bot"
 
     # - name: Updating Git-submodule
     #   run: |
@@ -41,9 +41,8 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: 8
-        distribution: 'adopt'
+        distribution: 'temurin'
         cache: gradle
-
 
     - name: Building jpf-symbc with Gradle
       run: |
@@ -51,7 +50,6 @@ jobs:
         ./gradlew :jpf-core:buildJars
         ./gradlew :jpf-symbc:buildJar
       
-
     - name: Testing jpf-symbc with Junit version 4.2
       run: |
         ./gradlew :jpf-symbc:test
