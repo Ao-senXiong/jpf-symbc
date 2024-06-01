@@ -4,7 +4,7 @@ task srcDist(type: Zip) {
 
     archiveBaseName = project.name
     archiveVersion = project.version
-    classifier = "src"
+    archiveClassifier = "src"
     archiveExtension = "zip"
 
     destinationDirectory = buildDir
