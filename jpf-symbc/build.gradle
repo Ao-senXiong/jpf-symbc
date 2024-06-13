@@ -66,6 +66,11 @@ compileExamplesJava.dependsOn copyResources
 compilePeersJava.dependsOn copyResources
 compileClassesJava.dependsOn copyResources
 
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:deprecation"
+    options.compilerArgs << "-Werror"
+}
+
 task compile {
     group = "SPF Build"
     description = "Compiles all JPF symbc sources."
