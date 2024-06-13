@@ -30,7 +30,7 @@ As of August 2022, we migrated our build workflow to `Gradle`. While migrating t
 
 ## Quick Start Guide
 
-SPF requires: **Java 8** and **Gradle 6.9**.
+SPF requires: **Java 11** and **Gradle 8.4**.
 
 ### 1. Get the latest SPF version
 ```{bash}
@@ -72,10 +72,10 @@ Submodule path 'jpf-core': checked out '45a4450cd0bd1193df5419f7c9d9b89807d00db6
 cd SPF
 gradle :jpf-core:buildJars
 ```
-If using a gradle version > 6.9, you can point gradle to the Java 8 home on your machine. You need to specify that for all gradle commands blow. For example:
+If using a gradle version > 8.4, you can point gradle to the Java 11 home on your machine. You need to specify that for all gradle commands blow. For example:
 
 ```{bash}
-gradle :jpf-core:buildJars -Dorg.gradle.java.home=/usr/lib/jvm/java-8-openjdk-amd64
+gradle :jpf-core:buildJars -Dorg.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64
 ```
 <details>
 <summary>Console Output</summary>
@@ -183,9 +183,9 @@ Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 4 warnings
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+See https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings
 
 BUILD SUCCESSFUL in 6s
 15 actionable tasks: 15 executed
@@ -212,9 +212,9 @@ Note: Recompile with -Xlint:unchecked for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+See https://docs.gradle.org/8.4.2/userguide/command_line_interface.html#sec:command_line_warnings
 
 BUILD SUCCESSFUL in 7s
 12 actionable tasks: 12 executed
@@ -329,7 +329,7 @@ Make sure you have the JDK installed, otherwise there is no javac compiler avail
 In order to build JPF from a Windows Command Prompt, you have to set the `JAVA_HOME` environment variable. 
 
 ### Java specifics for macOS
-To switch to Java 8 on macOS, we recommend the following blog post: [https://medium.com/@devkosal/switching-java-jdk-versions-on-macos-80bc868e686a](https://medium.com/@devkosal/switching-java-jdk-versions-on-macos-80bc868e686a).
+To switch to Java 11 on macOS, we recommend the following blog post: [https://medium.com/@devkosal/switching-java-jdk-versions-on-macos-80bc868e686a](https://medium.com/@devkosal/switching-java-jdk-versions-on-macos-80bc868e686a).
 
 ### Gradle (Build Automation Tool)
 
@@ -340,7 +340,7 @@ You can check your Gradle version by executing the following command in the comm
 ```{bash}
 > gradle -version
 ------------------------------------------------------------
-Gradle 6.9.2
+Gradle 8.4.1
 ------------------------------------------------------------
 
 Build time:   2021-12-21 20:18:38 UTC
@@ -362,7 +362,7 @@ Note that all major IDEs (e.g., Netbeans, Eclipse, IntelliJ) come with Gradle su
 
 SPF sources are kept in its main repository [https://github.com/SymbolicPathFinder/jpf-symbc](https://github.com/SymbolicPathFinder/jpf-symbc) within the [Symbolic PathFinder](https://github.com/SymbolicPathFinder) organization. There are two stable branches in our repository:
 
-1. `ant-build`: It provides Java 8 support using the [Ant Build system](https://ant.apache.org).
+1. `ant-build`: It provides Java 11 support using the [Ant Build system](https://ant.apache.org).
 2. `master`: Contains the latest stable version of our repository. In this version of SPF, we have introduced jpf-core as a git-submodule.
 
 If you want to keep using Ant, consider using the `ant-build` branch. The branch `master` uses Gradle. To check out the SPF, it is recommended to fork the repository. Contributions are welcome, and we invite you to explore our [Java Pathfinder Google Group](https://groups.google.com/g/java-pathfinder). We also encourage you to check the following GitHub guides to familiarize yourself with the GitHub development workflow:
@@ -406,11 +406,11 @@ Submodule path 'jpf-core': checked out '45a4450cd0bd1193df5419f7c9d9b89807d00db6
 
 ### Building SPF using the Command Line
 
-Requirements: **Java 8** and **Gradle 6.9**.
+Requirements: **Java 11** and **Gradle 8.4**.
 
 **Note:** 
 
-* On Ubuntu, the `command apt-get install gradle` seems to install an older version of gradle (version 2.x) which is incompatible with the project and causes unzipping errors. Hence, it is recommended to visit the [Official Gradle installation guide](https://docs.gradle.org/6.9/userguide/installation.html) for installing the 6.9 version of gradle.
+* On Ubuntu, the `command apt-get install gradle` seems to install an older version of gradle (version 2.x) which is incompatible with the project and causes unzipping errors. Hence, it is recommended to visit the [Official Gradle installation guide](https://docs.gradle.org/8.4/userguide/installation.html) for installing the 8.4 version of gradle.
 
 * Instead of using the `gradle` command, you may want to use the gradle wrapper `gradlew` instead. The SPF repository includes a Gradle wrapper that requires nothing except Java to execute. It ensures that all JPF developers and environments use the same builder to avoid any kind of configuration issue.
 
@@ -526,9 +526,9 @@ Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 4 warnings
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+See https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings
 
 BUILD SUCCESSFUL in 6s
 15 actionable tasks: 15 executed
@@ -556,9 +556,9 @@ Note: Recompile with -Xlint:unchecked for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+See https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings
 
 BUILD SUCCESSFUL in 7s
 12 actionable tasks: 12 executed
@@ -573,9 +573,9 @@ BUILD SUCCESSFUL in 7s
      jpf-core
      jpf-symbc
 
-     Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+     Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
      Use '--warning-mode all' to show the individual deprecation warnings.
-     See https://docs.gradle.org/6.9/userguide/command_line_interface.html#sec:command_line_warnings
+     See https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings
 
      BUILD SUCCESSFUL in 2s
      15 actionable tasks: 2 executed, 13 up-to-date
@@ -592,9 +592,9 @@ BUILD SUCCESSFUL in 7s
      Note: Some input files use unchecked or unsafe operations.
      Note: Recompile with -Xlint:unchecked for details.
 
-     Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+     Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
      Use '--warning-mode all' to show the individual deprecation warnings.
-     See https://docs.gradle.org/6.9/userguide/command_line_interface.html#sec:command_line_warnings
+     See https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings
 
      BUILD SUCCESSFUL in 20s
      12 actionable tasks: 12 executed   
@@ -684,9 +684,9 @@ gov.nasa.jpf.symbc.TestSwitch > mainTest PASSED
 Test Execution: SUCCESS
 Summary: 24 tests, 24 passed, 0 failed, 0 skipped
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+See https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings
 
 BUILD SUCCESSFUL in 21s
 13 actionable tasks: 6 executed, 7 up-to-date
@@ -1133,9 +1133,9 @@ Use 'docker scan' to run Snyk tests against images to find vulnerabilities and l
 	Note: Recompile with -Xlint:unchecked for details.
 	4 warnings
 	
-	Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+	Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 	Use '--warning-mode all' to show the individual deprecation warnings.
-	See https://docs.gradle.org/6.9/userguide/command_line_interface.html#sec:command_line_warnings
+	See https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings
 	
 	BUILD SUCCESSFUL in 23s
 	15 actionable tasks: 15 executed
@@ -1154,9 +1154,9 @@ Use 'docker scan' to run Snyk tests against images to find vulnerabilities and l
 	Note: Some input files use unchecked or unsafe operations.
 	Note: Recompile with -Xlint:unchecked for details.
 	
-	Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+	Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 	Use '--warning-mode all' to show the individual deprecation warnings.
-	See https://docs.gradle.org/6.9/userguide/command_line_interface.html#sec:command_line_warnings
+	See https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings
 	
 	BUILD SUCCESSFUL in 35s
 	12 actionable tasks: 12 executed
@@ -1216,9 +1216,9 @@ Use 'docker scan' to run Snyk tests against images to find vulnerabilities and l
 	Test Execution: SUCCESS
 	Summary: 24 tests, 24 passed, 0 failed, 0 skipped
 	
-	Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+	Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 	Use '--warning-mode all' to show the individual deprecation warnings.
-	See https://docs.gradle.org/6.9/userguide/command_line_interface.html#sec:command_line_warnings
+	See https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings
 	
 	BUILD SUCCESSFUL in 9s
 	13 actionable tasks: 6 executed, 7 up-to-date
