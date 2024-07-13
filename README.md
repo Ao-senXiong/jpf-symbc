@@ -30,7 +30,7 @@ As of August 2022, we migrated our build workflow to `Gradle`. While migrating t
 
 ## Quick Start Guide
 
-SPF requires: **Java 8** and **Gradle 6.9**.
+SPF requires: **Java 11** and **Gradle 8.4**.
 
 ### 1. Get the latest SPF version
 ```{bash}
@@ -72,7 +72,7 @@ Submodule path 'jpf-core': checked out '45a4450cd0bd1193df5419f7c9d9b89807d00db6
 cd SPF
 gradle :jpf-core:buildJars
 ```
-If using a gradle version > 6.9, you can point gradle to the Java 8 home on your machine. You need to specify that for all gradle commands blow. For example:
+If using a gradle version > 8.4, you can point gradle to the Java 11 home on your machine. You need to specify that for all gradle commands blow. For example:
 
 ```{bash}
 gradle :jpf-core:buildJars -Dorg.gradle.java.home=/usr/lib/jvm/java-8-openjdk-amd64
@@ -86,109 +86,23 @@ jpf-core
 jpf-symbc
 
 > Task :jpf-core:compileJava
-/Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/HashedAllocationContext.java:21: warning: sun.misc.SharedSecrets is internal proprietary API and may be removed in a future release
-import sun.misc.SharedSecrets;
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/HashedAllocationContext.java:22: warning: sun.misc.JavaLangAccess is internal proprietary API and may be removed in a future release
-import sun.misc.JavaLangAccess;
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/HashedAllocationContext.java:85: warning: sun.misc.JavaLangAccess is internal proprietary API and may be removed in a future release
-   static final JavaLangAccess JLA = SharedSecrets.getJavaLangAccess();
-                ^
-/Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/HashedAllocationContext.java:85: warning: sun.misc.SharedSecrets is internal proprietary API and may be removed in a future release
-   static final JavaLangAccess JLA = SharedSecrets.getJavaLangAccess();
-                                     ^
-Note: /Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/choice/PermutationCG.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-4 warnings
-
-> Task :jpf-core:compileClassesJava
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/java/lang/ClassLoader.java:29: warning: sun.misc.CompoundEnumeration is internal proprietary API and may be removed in a future release
-import sun.misc.CompoundEnumeration;
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/java/lang/ClassLoader.java:114: warning: sun.misc.CompoundEnumeration is internal proprietary API and may be removed in a future release
-    return new CompoundEnumeration<URL>(resEnum);
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/JavaNetAccess.java:32: warning: sun.misc.URLClassPath is internal proprietary API and may be removed in a future release
-    URLClassPath getURLClassPath (URLClassLoader ucl);
-    ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:52: warning: sun.misc.JavaUtilJarAccess is internal proprietary API and may be removed in a future release
-  private static JavaUtilJarAccess javaUtilJarAccess;
-                 ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:60: warning: sun.misc.JavaOISAccess is internal proprietary API and may be removed in a future release
-  private static JavaOISAccess javaOISAccess;
-                 ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:61: warning: sun.misc.JavaObjectInputStreamAccess is internal proprietary API and may be removed in a future release
-  private static JavaObjectInputStreamAccess javaObjectInputStreamAccess;
-                 ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:82: warning: sun.misc.JavaUtilJarAccess is internal proprietary API and may be removed in a future release
-  public static JavaUtilJarAccess javaUtilJarAccess() {
-                ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:88: warning: sun.misc.JavaUtilJarAccess is internal proprietary API and may be removed in a future release
-  public static void setJavaUtilJarAccess(JavaUtilJarAccess access) {
-                                          ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:142: warning: sun.misc.JavaObjectInputStreamAccess is internal proprietary API and may be removed in a future release
-  public static JavaObjectInputStreamAccess getJavaObjectInputStreamAccess() {
-                ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:151: warning: sun.misc.JavaObjectInputStreamAccess is internal proprietary API and may be removed in a future release
-  public static void setJavaObjectInputStreamAccess(JavaObjectInputStreamAccess access) {
-                                                    ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:162: warning: sun.misc.JavaOISAccess is internal proprietary API and may be removed in a future release
-  public static void setJavaOISAccess(JavaOISAccess access) {
-                                      ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:166: warning: sun.misc.JavaOISAccess is internal proprietary API and may be removed in a future release
-  public static JavaOISAccess getJavaOISAccess() {
-                ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:175: warning: sun.misc.JavaObjectInputStreamReadString is internal proprietary API and may be removed in a future release
-  public void setJavaObjectInputStreamReadString(sun.misc.JavaObjectInputStreamReadString ignored) {
-                                                         ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/java/lang/System.java:64: warning: sun.misc.VM is internal proprietary API and may be removed in a future release
-    sun.misc.VM.saveAndRemoveProperties(properties);
-            ^
-14 warnings
-
-> Task :jpf-core:compilePeersJava
-/Users/yannic/Desktop/SPF/jpf-core/src/peers/gov/nasa/jpf/vm/JPF_java_util_Random.java:32: warning: sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-import sun.misc.Unsafe;
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/peers/gov/nasa/jpf/vm/JPF_java_util_Random.java:93: warning: sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-  private static Unsafe unsafe;
-                 ^
-/Users/yannic/Desktop/SPF/jpf-core/src/peers/gov/nasa/jpf/vm/JPF_java_util_Random.java:99: warning: sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-      Field singletonField = Unsafe.class.getDeclaredField("theUnsafe");
-                             ^
-/Users/yannic/Desktop/SPF/jpf-core/src/peers/gov/nasa/jpf/vm/JPF_java_util_Random.java:101: warning: sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-      unsafe = (Unsafe)singletonField.get(null);
-                ^
-4 warnings
 
 > Task :jpf-core:compileTestJava
-/Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java:34: warning: sun.reflect.Reflection is internal proprietary API and may be removed in a future release
-      Class<?> callerCls = sun.reflect.Reflection.getCallerClass(0); // that would be getCallerClass()
-                                      ^
-/Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java:38: warning: sun.reflect.Reflection is internal proprietary API and may be removed in a future release
-      callerCls = sun.reflect.Reflection.getCallerClass(1); // foo()
-                             ^
-/Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java:42: warning: sun.reflect.Reflection is internal proprietary API and may be removed in a future release
-      callerCls = sun.reflect.Reflection.getCallerClass(2); // bar()
-                             ^
-/Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java:46: warning: sun.reflect.Reflection is internal proprietary API and may be removed in a future release
-      callerCls = sun.reflect.Reflection.getCallerClass(3); // callIt()
-                             ^
-Note: /Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java uses or overrides a deprecated API.
+Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-4 warnings
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
-Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
-BUILD SUCCESSFUL in 6s
-15 actionable tasks: 15 executed
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 4s
+16 actionable tasks: 16 executed
 ```
 </details>
 
@@ -205,19 +119,32 @@ jpf-core
 jpf-symbc
 
 > Task :jpf-symbc:compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
 > Task :jpf-symbc:compileExamplesJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
-Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+> Task :jpf-symbc:compilePeersJava
+Note: /Users/aosenxiong/spf/jpf-symbc/jpf-symbc/src/peers/gov/nasa/jpf/symbc/JPF_gov_nasa_jpf_symbc_Debug.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
 
-BUILD SUCCESSFUL in 7s
-12 actionable tasks: 12 executed
+> Task :jpf-symbc:compileTestJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
 ```
 </details>
 
@@ -429,109 +356,23 @@ jpf-core
 jpf-symbc
 
 > Task :jpf-core:compileJava
-/Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/HashedAllocationContext.java:21: warning: sun.misc.SharedSecrets is internal proprietary API and may be removed in a future release
-import sun.misc.SharedSecrets;
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/HashedAllocationContext.java:22: warning: sun.misc.JavaLangAccess is internal proprietary API and may be removed in a future release
-import sun.misc.JavaLangAccess;
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/HashedAllocationContext.java:85: warning: sun.misc.JavaLangAccess is internal proprietary API and may be removed in a future release
-   static final JavaLangAccess JLA = SharedSecrets.getJavaLangAccess();
-                ^
-/Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/HashedAllocationContext.java:85: warning: sun.misc.SharedSecrets is internal proprietary API and may be removed in a future release
-   static final JavaLangAccess JLA = SharedSecrets.getJavaLangAccess();
-                                     ^
-Note: /Users/yannic/Desktop/SPF/jpf-core/src/main/gov/nasa/jpf/vm/choice/PermutationCG.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-4 warnings
-
-> Task :jpf-core:compileClassesJava
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/java/lang/ClassLoader.java:29: warning: sun.misc.CompoundEnumeration is internal proprietary API and may be removed in a future release
-import sun.misc.CompoundEnumeration;
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/java/lang/ClassLoader.java:114: warning: sun.misc.CompoundEnumeration is internal proprietary API and may be removed in a future release
-    return new CompoundEnumeration<URL>(resEnum);
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/JavaNetAccess.java:32: warning: sun.misc.URLClassPath is internal proprietary API and may be removed in a future release
-    URLClassPath getURLClassPath (URLClassLoader ucl);
-    ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:52: warning: sun.misc.JavaUtilJarAccess is internal proprietary API and may be removed in a future release
-  private static JavaUtilJarAccess javaUtilJarAccess;
-                 ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:60: warning: sun.misc.JavaOISAccess is internal proprietary API and may be removed in a future release
-  private static JavaOISAccess javaOISAccess;
-                 ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:61: warning: sun.misc.JavaObjectInputStreamAccess is internal proprietary API and may be removed in a future release
-  private static JavaObjectInputStreamAccess javaObjectInputStreamAccess;
-                 ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:82: warning: sun.misc.JavaUtilJarAccess is internal proprietary API and may be removed in a future release
-  public static JavaUtilJarAccess javaUtilJarAccess() {
-                ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:88: warning: sun.misc.JavaUtilJarAccess is internal proprietary API and may be removed in a future release
-  public static void setJavaUtilJarAccess(JavaUtilJarAccess access) {
-                                          ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:142: warning: sun.misc.JavaObjectInputStreamAccess is internal proprietary API and may be removed in a future release
-  public static JavaObjectInputStreamAccess getJavaObjectInputStreamAccess() {
-                ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:151: warning: sun.misc.JavaObjectInputStreamAccess is internal proprietary API and may be removed in a future release
-  public static void setJavaObjectInputStreamAccess(JavaObjectInputStreamAccess access) {
-                                                    ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:162: warning: sun.misc.JavaOISAccess is internal proprietary API and may be removed in a future release
-  public static void setJavaOISAccess(JavaOISAccess access) {
-                                      ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:166: warning: sun.misc.JavaOISAccess is internal proprietary API and may be removed in a future release
-  public static JavaOISAccess getJavaOISAccess() {
-                ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/sun/misc/SharedSecrets.java:175: warning: sun.misc.JavaObjectInputStreamReadString is internal proprietary API and may be removed in a future release
-  public void setJavaObjectInputStreamReadString(sun.misc.JavaObjectInputStreamReadString ignored) {
-                                                         ^
-/Users/yannic/Desktop/SPF/jpf-core/src/classes/java/lang/System.java:64: warning: sun.misc.VM is internal proprietary API and may be removed in a future release
-    sun.misc.VM.saveAndRemoveProperties(properties);
-            ^
-14 warnings
-
-> Task :jpf-core:compilePeersJava
-/Users/yannic/Desktop/SPF/jpf-core/src/peers/gov/nasa/jpf/vm/JPF_java_util_Random.java:32: warning: sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-import sun.misc.Unsafe;
-               ^
-/Users/yannic/Desktop/SPF/jpf-core/src/peers/gov/nasa/jpf/vm/JPF_java_util_Random.java:93: warning: sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-  private static Unsafe unsafe;
-                 ^
-/Users/yannic/Desktop/SPF/jpf-core/src/peers/gov/nasa/jpf/vm/JPF_java_util_Random.java:99: warning: sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-      Field singletonField = Unsafe.class.getDeclaredField("theUnsafe");
-                             ^
-/Users/yannic/Desktop/SPF/jpf-core/src/peers/gov/nasa/jpf/vm/JPF_java_util_Random.java:101: warning: sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-      unsafe = (Unsafe)singletonField.get(null);
-                ^
-4 warnings
 
 > Task :jpf-core:compileTestJava
-/Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java:34: warning: sun.reflect.Reflection is internal proprietary API and may be removed in a future release
-      Class<?> callerCls = sun.reflect.Reflection.getCallerClass(0); // that would be getCallerClass()
-                                      ^
-/Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java:38: warning: sun.reflect.Reflection is internal proprietary API and may be removed in a future release
-      callerCls = sun.reflect.Reflection.getCallerClass(1); // foo()
-                             ^
-/Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java:42: warning: sun.reflect.Reflection is internal proprietary API and may be removed in a future release
-      callerCls = sun.reflect.Reflection.getCallerClass(2); // bar()
-                             ^
-/Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java:46: warning: sun.reflect.Reflection is internal proprietary API and may be removed in a future release
-      callerCls = sun.reflect.Reflection.getCallerClass(3); // callIt()
-                             ^
-Note: /Users/yannic/Desktop/SPF/jpf-core/src/tests/gov/nasa/jpf/test/vm/reflection/ReflectionTest.java uses or overrides a deprecated API.
+Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-4 warnings
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
-Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
-BUILD SUCCESSFUL in 6s
-15 actionable tasks: 15 executed
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 4s
+16 actionable tasks: 16 executed
 ```
 </details>
 
@@ -549,19 +390,32 @@ jpf-core
 jpf-symbc
 
 > Task :jpf-symbc:compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
 > Task :jpf-symbc:compileExamplesJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
-Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+> Task :jpf-symbc:compilePeersJava
+Note: /Users/aosenxiong/spf/jpf-symbc/jpf-symbc/src/peers/gov/nasa/jpf/symbc/JPF_gov_nasa_jpf_symbc_Debug.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
 
-BUILD SUCCESSFUL in 7s
-12 actionable tasks: 12 executed
+> Task :jpf-symbc:compileTestJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
 ```
 </details>
 
@@ -571,33 +425,58 @@ BUILD SUCCESSFUL in 7s
 > cd SPF
 > ./gradlew :jpf-core:buildJars
      jpf-core
-     jpf-symbc
-
-     Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
-     Use '--warning-mode all' to show the individual deprecation warnings.
-     See https://docs.gradle.org/6.9/userguide/command_line_interface.html#sec:command_line_warnings
-
-     BUILD SUCCESSFUL in 2s
-     15 actionable tasks: 2 executed, 13 up-to-date
+    jpf-symbc
+    
+    > Task :jpf-core:compileJava
+    Note: Some input files use unchecked or unsafe operations.
+    Note: Recompile with -Xlint:unchecked for details.
+    
+    > Task :jpf-core:compileTestJava
+    Note: Some input files use or override a deprecated API.
+    Note: Recompile with -Xlint:deprecation for details.
+    Note: Some input files use unchecked or unsafe operations.
+    Note: Recompile with -Xlint:unchecked for details.
+    
+    Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+    
+    You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+    
+    For more on this, please refer to https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+    
+    BUILD SUCCESSFUL in 4s
+    16 actionable tasks: 16 executed
 
 > ./gradlew :jpf-symbc:buildJars
-     jpf-core
-     jpf-symbc
-
-     > Task :jpf-symbc:compileJava
-     Note: Some input files use unchecked or unsafe operations.
-     Note: Recompile with -Xlint:unchecked for details.
-
-     > Task :jpf-symbc:compileExamplesJava
-     Note: Some input files use unchecked or unsafe operations.
-     Note: Recompile with -Xlint:unchecked for details.
-
-     Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
-     Use '--warning-mode all' to show the individual deprecation warnings.
-     See https://docs.gradle.org/6.9/userguide/command_line_interface.html#sec:command_line_warnings
-
-     BUILD SUCCESSFUL in 20s
-     12 actionable tasks: 12 executed   
+    jpf-core
+    jpf-symbc
+    
+    > Task :jpf-symbc:compileJava
+    Note: Some input files use or override a deprecated API.
+    Note: Recompile with -Xlint:deprecation for details.
+    Note: Some input files use unchecked or unsafe operations.
+    Note: Recompile with -Xlint:unchecked for details.
+    
+    > Task :jpf-symbc:compileExamplesJava
+    Note: Some input files use or override a deprecated API.
+    Note: Recompile with -Xlint:deprecation for details.
+    Note: Some input files use unchecked or unsafe operations.
+    Note: Recompile with -Xlint:unchecked for details.
+    
+    > Task :jpf-symbc:compilePeersJava
+    Note: /Users/aosenxiong/spf/jpf-symbc/jpf-symbc/src/peers/gov/nasa/jpf/symbc/JPF_gov_nasa_jpf_symbc_Debug.java uses or overrides a deprecated API.
+    Note: Recompile with -Xlint:deprecation for details.
+    
+    > Task :jpf-symbc:compileTestJava
+    Note: Some input files use or override a deprecated API.
+    Note: Recompile with -Xlint:deprecation for details.
+    
+    Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+    
+    You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+    
+    For more on this, please refer to https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+    
+    BUILD SUCCESSFUL in 2s
 ```
 -->
 
@@ -684,9 +563,9 @@ gov.nasa.jpf.symbc.TestSwitch > mainTest PASSED
 Test Execution: SUCCESS
 Summary: 24 tests, 24 passed, 0 failed, 0 skipped
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
-Use '--warning-mode all' to show the individual deprecation warnings.
-See https://docs.gradle.org/6.9.2/userguide/command_line_interface.html#sec:command_line_warnings
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+For more on this, please refer to https://docs.gradle.org/8.4/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 21s
 13 actionable tasks: 6 executed, 7 up-to-date
