@@ -307,6 +307,13 @@ TODO -->
 
 <br>
 
+## Guide for using jpf-sv-comp script
+
+Put the jpf-sv-comp script in the same directory as jpf-symbc and change two lines with comment usage to your own path. Example use case:
+```
+./jpf-sv-comp --propertyfile sv-benchmarks/java/properties/assert_java.prp --64 sv-benchmarks/java/aric/Alphabet.java
+```
+
 ## Detailed Instructions and Suggestions
  
 Please find below detailed instructions for installing and running SPF.
